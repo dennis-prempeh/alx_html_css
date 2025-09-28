@@ -1,0 +1,424 @@
+/* ========== Global Reset & Fonts ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Source Sans Pro", Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background: #fff;
+}
+
+/* Links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Buttons */
+button {
+  background-color: #c271ff;
+  color: #fff;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: #9b50e7;
+}
+
+/* ========== Header & Banner ========== */
+header {
+  position: absolute; /* sits on top of banner */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  padding: 20px 60px;
+}
+
+header nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header nav img {
+  height: 40px;
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+}
+
+header nav ul li a {
+  color: #fff;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 1px;
+  transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+  color: #c271ff;
+}
+
+/* Hero (Banner) */
+main > section:first-of-type {
+  position: relative;
+  text-align: center;
+  padding: 180px 20px 120px; /* clears header */
+  color: #fff;
+  background: url("assets/Object.png") no-repeat top/cover;
+}
+
+main > section:first-of-type::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(7, 22, 41, 0.6); /* dark overlay */
+}
+
+main > section:first-of-type > div:first-child {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+main > section:first-of-type h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+/* SMILES / GRIN / LAUGH horizontal */
+main > section:first-of-type .tagline {
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+main > section:first-of-type .tagline span {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+main > section:first-of-type button {
+  font-size: 1rem;
+  font-weight: 600;
+  background: #c271ff;
+  border-radius: 30px;
+  padding: 14px 35px;
+  z-index: 2;
+  position: relative;
+}
+
+/* Authors row at the bottom of banner */
+main > section:first-of-type > div:nth-child(2) {
+  position: relative;
+  z-index: 2;
+  margin-top: 100px;
+}
+
+main > section:first-of-type > div:nth-child(2) h2 {
+  font-size: 1.8rem;
+  margin-bottom: 40px;
+}
+
+main > section:first-of-type > div:nth-child(2) h2 span {
+  color: #c271ff; /* highlight "Learn" */
+}
+
+main > section:first-of-type > div:nth-child(2) > div {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+main > section:first-of-type > div:nth-child(2) > div > div {
+  text-align: center;
+  max-width: 180px;
+}
+
+main > section:first-of-type > div:nth-child(2) img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+/* ========== Quotes Section ========== */
+main > section:nth-of-type(2) {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  padding: 60px 100px;
+  background: #c271ff;
+  color: #fff;
+}
+
+main > section:nth-of-type(2) img {
+  border-radius: 50%;
+  width: 150px;
+}
+
+main > section:nth-of-type(2) blockquote {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  font-style: italic;
+}
+
+/* ========== Videos Section (NEW) ========== */
+.videos {
+  padding: 80px 100px;
+  background: #fff;
+  text-align: center;
+}
+
+.videos h2 {
+  margin-bottom: 60px;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #071629;
+}
+
+.videos h2 span {
+  color: #c271ff; /* purple highlight */
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  text-align: left;
+}
+
+/* make the grid responsive */
+@media (max-width: 1100px) {
+  .video-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .videos {
+    padding: 40px 20px;
+  }
+  .video-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* Video Card */
+.video-card {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+
+.video-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.12);
+}
+
+/* Thumbnail + Play button */
+.thumbnail {
+  position: relative;
+  overflow: hidden;
+}
+
+.thumbnail img {
+  width: 100%;
+  display: block;
+  height: 180px;
+  object-fit: cover;
+}
+
+/* Play button circle centered on image */
+.play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  color: #c271ff;
+  border-radius: 50%;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+/* Text content */
+.video-card h3 {
+  font-size: 1.1rem;
+  margin: 15px 20px 8px;
+  font-weight: 600;
+  color: #071629;
+}
+
+.video-card p {
+  margin: 0 20px 14px;
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.4;
+}
+
+/* Footer: author + rating + duration */
+.video-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px 18px;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Author block */
+.author {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.author img {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.author h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #c271ff;
+  margin-left: 4px;
+}
+
+/* Rating stars */
+.rating {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  font-size: 0.95rem;
+  color: #c271ff;
+}
+
+/* make empty star grey */
+.rating .fa-regular {
+  color: #e6e6e6;
+}
+
+/* Duration */
+.duration {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #c271ff;
+}
+
+/* ========== Membership Section ========== */
+main > section:nth-of-type(4) {
+  padding: 60px 100px;
+  background: #071629;
+  text-align: center;
+  color: #fff;
+}
+
+main > section:nth-of-type(4) h2 {
+  margin-bottom: 40px;
+  font-size: 2rem;
+}
+
+main > section:nth-of-type(4) > div {
+  display: inline-block;
+  width: 22%;
+  margin: 0 1%;
+  text-align: center;
+}
+
+main > section:nth-of-type(4) img {
+  width: 60px;
+  margin-bottom: 15px;
+}
+
+main > section:nth-of-type(4) button {
+  margin-top: 40px;
+}
+
+/* ========== FAQ Section ========== */
+main > section:nth-of-type(5) {
+  padding: 60px 100px;
+  background: #fff;
+}
+
+main > section:nth-of-type(5) h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2rem;
+  color: #071629;
+}
+
+main > section:nth-of-type(5) > div {
+  display: flex;
+  gap: 40px;
+}
+
+main > section:nth-of-type(5) h3 {
+  margin-bottom: 10px;
+  font-size: 1rem;
+  color: #071629;
+}
+
+main > section:nth-of-type(5) div div div {
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* ========== Footer ========== */
+footer {
+  background: #071629;
+  padding: 30px 100px;
+  color: #fff;
+  text-align: center;
+}
+
+footer section > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+footer img {
+  height: 40px;
+}
+
+footer i {
+  margin: 0 10px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+footer p {
+  margin-top: 20px;
+  font-size: 0.8rem;
+}
